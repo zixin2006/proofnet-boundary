@@ -1,0 +1,1218 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  10pt,
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=0.82in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{}{}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{\textbf{#1}}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+\babelprovide[main,import]{american}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+\usepackage{xurl}
+\usepackage{microtype}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small ProofNet / Joint research design}
+\fancyhead[R]{\small 2026-09-30}
+\fancyfoot[C]{\thepage}
+\setlength{\headheight}{15pt}
+\emergencystretch=3em
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={From Proof-Order Graphs to Checked Proof Reuse},
+  pdfauthor={Research design note for the ProofNet collaboration},
+  pdflang={en-US},
+  colorlinks=true,
+  linkcolor={black},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={blue},
+  pdfcreator={LaTeX via pandoc}}
+
+\title{From Proof-Order Graphs to Checked Proof Reuse}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{A source-pinned comparison and joint research plan for
+ProofNet}
+\author{Research design note for the ProofNet collaboration}
+\date{30 September 2026}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+This note compares the current ProofNet-IR and proof-graphs repositories
+with the available Boundary-Lens prototype. The repositories already
+supply a verified restricted MLL library, Lean graph extraction,
+structural identities, coupled-goal search, and negative empirical
+results that narrow the case for further order-based pruning. We
+recommend one integrated program: retain the formal MLL layer, extend
+the existing Lean engine with typed transaction-aware boundaries, and
+test completed proof-fragment transport against a conventional typed
+cache. We separate standard substitution principles from proposed
+engineering and distinguish final kernel replay from observed tactic
+effects. New executable results here are a Python audit of the supplied
+prototype and finite-model regression tests, not fresh Lean or
+neural-prover experiments. Source pins, explicit evidence levels,
+falsifiable experiments, and implementation prompts make the proposed
+collaboration auditable.
+\end{abstract}
+
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\section{Reading this note}\label{reading-this-note}
+
+The conclusions compare inspected artifacts, not the collaborators'
+personal abilities or complete contribution histories. Numerical
+repository results below are first-party reports, not new replications.
+The review could read selected current GitHub files, but the container
+had no Lean/Lake and could not clone the repositories. The local
+user-artifact audit and the reference Python tests were executed. All
+new live-graph and proof-reuse examples are design fixtures.
+
+The package contains 29 passing Python representation/schema tests.
+Those tests exercise a deliberately restricted expression model. They
+neither typecheck Lean terms nor prove that a proposed normalization
+preserves all of Lean's operational behavior.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.88\textwidth,height=\textheight]{../figures/joint_architecture.pdf}
+\caption{One integration, not three competing extractors. The MLL
+reference arrows express reuse of test cases and concepts, not a
+soundness reduction for dependent-type Lean proofs.}
+\end{figure}
+
+\section{What the two repositories change about your
+part}\label{what-the-two-repositories-change-about-your-part}
+
+\textbf{Decision:} integrate your work into \texttt{proof-graphs}; do
+not build another parallel Lean graph extractor. Retain
+\texttt{proofnet-ir} as the formally verified MLL reference layer.
+Recast Boundary-Lens as a \textbf{typed, transaction-aware evidence and
+proof-reuse interface}, evaluated against your friend's existing
+structural-state and coupled-group search baselines.
+
+This is a recommendation about research direction, not a judgment about
+authorship or personal ability. The code is treated as your friend's
+contribution because that is how you described it. The repositories
+alone do not establish who contributed every idea, nor how publication
+credit should be divided.
+
+\subsection{The honest comparison}\label{the-honest-comparison}
+
+At the inspected commits, your friend's work is ahead of the last
+Boundary-Lens artifact in both implementation and experimental maturity.
+Your earlier design remains useful, but much of its originally proposed
+engineering is now overlapping work. The right response is to reuse that
+foundation rather than defend an obsolete novelty claim. {[}R1--R8,
+U1{]}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Dimension
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\texttt{proofnet-ir}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\texttt{proof-graphs}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Your last available Boundary-Lens package
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Core object & Actual proof-net certificates for a restricted MLL
+calculus & Extracted step-dependency graphs and live search graphs &
+Goal-boundary snapshots and proposed typed graph updates \\
+Trust basis & Lean-formalized checker/sequentialization results in that
+calculus & Executed Lean traces, structural checks, final proof replay &
+Included controlled Lean logs and custom frontier checks \\
+Data scale & Formal-library and MLL experiment artifacts & 7,285
+corrected step graphs, plus search artifacts & Five controlled theorems,
+15 success rows and five failure rows in the inspected ZIP \\
+Identity & Canonical identity for the specified MLL representation &
+Lean-expression keys, renaming, and coupled groups & Raw goal transport;
+schema and feature separation still incomplete \\
+Search evidence & Registered restricted-logic experiments & Several
+registered Lean search comparisons & No demonstrated incremental search
+improvement \\
+Best role in joint project & Logical reference and certified restricted
+testbed & Shared implementation and empirical baseline & Proposed
+evidence-quality, transport, and checked-reuse layer \\
+\end{longtable}
+
+The 7,285 graphs are not 7,285 fully annotated open-boundary traces. The
+exported rows contain step kinds, source lines, edges, and graph
+statistics; expression-rich state snapshots cannot be reconstructed from
+that dataset alone. A sidecar enrichment must return to raw extraction
+or re-elaborate a source subset. {[}R2, R7, R8, R17{]}
+
+\subsection{What your friend has actually
+contributed}\label{what-your-friend-has-actually-contributed}
+
+\subsubsection{A. A genuine formal proof-net
+library}\label{a.-a-genuine-formal-proof-net-library}
+
+\texttt{proofnet-ir} establishes substantial guarantees for
+\textbf{unit-free, cut-free multiplicative linear logic}: a correctness
+checker, conversion from derivations, sequentialization of accepted
+certificates, and canonical identity. Its rolling result includes a
+stated quadratic symbolic-operation bound, not a general linear-time
+guarantee or a bound on arbitrary Lean proof search. This is a
+formal-methods contribution in its own right. {[}R1{]}
+
+It is not simply a backend that can certify any Lean dependency graph.
+Lean's dependent type theory and tactic meta-state are not MLL; a bridge
+requires a separate definition and theorem. Shared terminology is not
+such a bridge.
+
+\subsubsection{B. An actual extraction and search
+program}\label{b.-an-actual-extraction-and-search-program}
+
+\texttt{proof-graphs} already traverses Lean InfoTrees, derives
+dependency graphs, drives a live Lean REPL, compares state and goal
+searches, normalizes identities structurally, and keeps
+metavariable-coupled goals together. It also reconstructs proof scripts
+and checks completed candidates from the statement. Those are
+implementations, not only plans. {[}R5--R8{]}
+
+Consequently, ``we use real Lean states,'' ``we preserve metavariable
+identity,'' ``we group coupled goals,'' and ``we reuse solved goals''
+are no longer distinctive next contributions for your branch.
+
+\subsubsection{C. Useful negative
+evidence}\label{c.-useful-negative-evidence}
+
+The most valuable change is empirical. The repositories distinguish the
+number of possible orderings of a completed proof graph from the order
+redundancy actually encountered by a search policy. Default first-goal
+scheduling can suppress the latter without eliminating the former.
+{[}R2--R4{]}
+
+In search-v0.8, the registered comparable set contains \textbf{158
+tasks, with three draw sets per task}:
+
+\begin{longtable}[]{@{}lrrrr@{}}
+\toprule\noalign{}
+Search & Set 0 & Set 1 & Set 2 & Total / 474 task-sets \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Whole states & 38 & 37 & 41 & 116 \\
+Independent goals & 40 & 39 & 42 & 121 \\
+Coupled goal groups & 40 & 39 & 43 & 122 \\
+\end{longtable}
+
+None of the three registered pairwise comparisons passed the
+Holm-adjusted decision rule. These are neither 474 independent theorems
+nor proof of equivalence between algorithms. They are evidence against
+expecting a large automatic benefit from replacing state search by this
+graph search in the tested setting. {[}R3{]}
+
+The latest correction explicitly withdraws a simple runtime-cost
+advantage: searches share model draws and run in a rotating order, so
+later searches can inherit cached work. Both the pooled timing and the
+``ran first'' subsets are inadequate as a clean isolated latency
+comparison. {[}R3{]}
+
+A further update matters in \texttt{proofnet-ir}: with the thinking
+condition in representation-v0.3, 35 nets, 32 labelled derivations, and
+30 positional derivations verify out of 90 tasks; no pairwise format
+difference is significant after the adjustment. Without thinking the
+counts are 11, 0, 0. An earlier headline that nets reliably outperform
+derivations is too broad. {[}R9{]}
+
+\subsection{Where your contribution still has
+value}\label{where-your-contribution-still-has-value}
+
+\subsubsection{Immediate, defensible value: independent semantic
+audit}\label{immediate-defensible-value-independent-semantic-audit}
+
+The existing handoff identifies unaudited failure combinators and
+normalization concerns. A genuinely independent reconstruction and
+adversarial Lean test suite is useful work, particularly because
+structural invariants can pass when an extractor consistently assigns
+the wrong interpretation. {[}R4{]}
+
+Your Boundary-Lens perspective is valuable here: it asks what each edge
+means, what state it belongs to, and what evidence permits reuse.
+Convert that perspective into executable checks rather than another
+layer of terminology.
+
+\subsubsection{Medium-term value: a shared semantic
+interface}\label{medium-term-value-a-shared-semantic-interface}
+
+The offline extractor records goal identifiers and tactic-tree
+structure, while the live search exporter records instantiated
+expressions. A joint interface can connect these without treating them
+as identical evidence: versioned goal capsules, transaction/branch
+identities, assignment deltas, term/local provenance, and an explicit
+record of incomplete dependency coverage. {[}R5--R7{]}
+
+This is a proposed integration contribution. It is not yet implemented
+in Lean in this deliverable, and it should not be advertised as a new
+proof theory by naming it a lens.
+
+\subsubsection{High-upside, uncertain value: transportable proof
+fragments}\label{high-upside-uncertain-value-transportable-proof-fragments}
+
+The new experiment should target a narrower question:
+
+\begin{quote}
+Can a boundary-aware index find and replay already checked proof
+fragments in new compatible contexts, avoiding repeated tactic work
+beyond structural-state deduplication and ordinary proof-term caching?
+\end{quote}
+
+Existing search already shares proofs for matching goal keys. The
+possible extension is \textbf{typed context transport}: reuse when
+irrelevant local assumptions differ, when required local evidence can be
+mapped to a different context, or when the same subargument appears
+inside different surrounding proofs. Start with closed fragments;
+require Lean to check each transported application. Graph indexing must
+beat a non-graph cache receiving the same fragment pool before
+graph-specific value is claimed. {[}R6; proposed extension{]}
+
+This has no guaranteed payoff. It may turn out that ordinary premise
+retrieval or a typed cache captures almost everything. That outcome
+would still determine which part of your representation is worth
+keeping.
+
+\subsection{Findings from this review}\label{findings-from-this-review}
+
+A fresh Python audit of the available v0.7.1 ZIP found 15 success
+records and five failure records, no typed edges in any success delta,
+no explicit \texttt{rho\_before} in those rows, and 15/15 failures
+against the shipped trace schema. That refines earlier conversation
+counts: use the inspected artifact's five failures, not a remembered
+six. No Lean execution was rerun here. {[}U1{]}
+
+Reviewing \texttt{goal\_identity.py} also revealed a concrete
+\textbf{testable hazard}: metavariable renaming uses regular expressions
+over the complete serialized expression string, including quoted string
+literals. Thus a literal containing a metavariable-looking token can be
+altered as though it were a genuine metavariable. This package
+reproduces that mechanism in small Python fixtures and shows how a
+tagged AST avoids it. This is not evidence that a particular published
+Lean proof was wrong or that the empirical conclusions are invalid. It
+is a regression to verify in actual Lean. {[}R5{]}
+
+Other bounded audit targets are an \texttt{h?} fallback for unexported
+free variables, omitted implementation-detail locals, grouping by
+directly visible term-metavariable mentions, and a printed carried-goal
+check in the otherwise structural-key search. These deserve conservative
+handling and tests. They are not a blanket claim that the entire engine
+is unsound. Final proof replay protects theorem acceptance, but unsafe
+merging can still discard solvable branches or distort measurements.
+{[}R5, R6{]}
+
+\subsection{What to retire from the old
+pitch}\label{what-to-retire-from-the-old-pitch}
+
+Retire ``factorial proof-order reduction implies factorial Lean search
+savings.'' Retire ``state plus graph hashing safely prunes more than
+faithful state hashing.'' Retire ``only the focused goal can change.''
+Retire ``every successful tactic or recorded dependency edge is
+kernel-certified.'' Keep the mathematical motivation, but distinguish
+formal theorems, executed observations, derived annotations, and
+speculative proposals.
+
+Do not lead with a PFR or condensed-mathematics diagram whose states
+were not extracted. Use those areas later as held-out semantic stress
+tests, not as decorative evidence of scale.
+
+\subsection{Proposed joint position}\label{proposed-joint-position}
+
+A suitable joint research question is:
+
+\begin{quote}
+Which proof-graph abstractions remain useful once ordinary goal
+scheduling and structural-state sharing have already removed the easy
+redundancy, and what evidence is needed to reuse a proof fragment
+safely?
+\end{quote}
+
+A suitable description of your part is:
+
+\begin{quote}
+I am developing the typed boundary and proof-transport layer that turns
+extracted search graphs into auditable, reusable proof fragments, and
+testing its incremental value against the project's existing state and
+graph baselines.
+\end{quote}
+
+That is stronger than another general graph extractor because it
+connects directly to the evidence your friend already collected. It is
+also honest about what still has to be implemented and measured.
+
+\section{Revised joint methodology: from graph shape to checked
+reuse}\label{revised-joint-methodology-from-graph-shape-to-checked-reuse}
+
+\textbf{Status:} proposed method and executable Python design tests. No
+new Lean soundness theorem, neural-prover result, or frontier extraction
+is claimed here. Mathematical propositions below have explicit
+hypotheses; the reference implementation is a tagged-expression model,
+not Lean's meta-state.
+
+\subsection{Separate four objects}\label{separate-four-objects}
+
+Use four related but distinct representations.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{MLL certificate:} the object checked by \texttt{proofnet-ir}.
+  Its correctness results apply only to its specified logic. {[}R1{]}
+\item
+  \textbf{Offline derivation graph:} the corrected \texttt{proof-graphs}
+  step DAG. It is useful for structural analysis and supervised
+  metadata. It is not an online state. {[}R7, R8{]}
+\item
+  \textbf{Live boundary/event graph:} accepted and attempted Lean
+  transitions with source, state, and evidence identities. This is the
+  proposed Boundary-Lens integration.
+\item
+  \textbf{Reuse index:} a retrieval structure for completed proof
+  fragments. A match proposes an application; Lean decides whether that
+  application is valid.
+\end{enumerate}
+
+This decomposition avoids making one graph serve simultaneously as a
+proof certificate, a search state, a corpus row, and a heuristic index.
+
+\subsection{Boundary and event
+definitions}\label{boundary-and-event-definitions}
+
+Let a live search configuration be
+
+\[S=(E,O,Q,M,U,P),\]
+
+where \(E\) is the environment and source-prefix availability, \(O\)
+relevant options and scope, \(Q\) the ordered active-goal list, \(M\)
+the reachable term-metavariable declarations and assignments, \(U\)
+universe information, and \(P\) any relevant postponed or opaque
+obligations. This is an interface contract; exporting all of Lean's
+operational state is not assumed feasible. Missing fields must be
+represented by coverage flags, not silently erased. Lean distinguishes
+term goals, shared unknowns, and universe metavariables. {[}R14, R15{]}
+
+A goal capsule stores its local telescope, target, available local
+instances, identity, and content version. Metavariable types and
+local-definition values participate in dependency closure. Raw
+identifiers are for same-session provenance; model features use explicit
+structural references. Do not replace an unexported free variable by a
+common placeholder.
+
+Define an observed boundary
+
+\[\partial S=(Q,\operatorname{Reach}(Q;M,U,P),\operatorname{coverage}).\]
+
+\texttt{Reach} follows references through goal targets, local
+types/values, metavariable declarations/assignments, and universes.
+Opaque constraints either join the affected component conservatively or
+disable factorization. A successful export is not automatically a
+complete export.
+
+An event is
+
+\[e_i=(b_i,S_i,t_i,o_i,S'_i,\eta_i),\]
+
+with branch/transaction identifier \(b_i\), tactic syntax \(t_i\),
+outcome \(o_i\), and evidence \(\eta_i\). Outcomes distinguish
+unexecuted proposals, executed successes, errors, timeouts, and
+unknowns. Disposition separately distinguishes committed, speculative,
+and rolled-back events. A successful speculative alternative need not be
+committed.
+
+Let \(\rho_i\) map active Lean goal identifiers injectively into
+persistent graph identities. Preserve this identity while incrementing a
+\textbf{capsule version} when an assignment changes the instantiated
+target or context. A removed active goal is \texttt{no\_longer\_active}
+until assignment/reachability evidence determines whether it is solved,
+replaced, or suspended.
+
+The durable history is append-only:
+
+\[H_{i+1}=H_i\mathbin{\|}[e_i].\]
+
+The current graph is a materialized view:
+
+\[G_{i+1}=\operatorname{Apply}(G_i,\Delta_i).\]
+
+Node insertions can be monotone, but statuses, active ports, and content
+versions are updates. Writing only \(G_{i+1}=G_i\cup\Delta_i\) loses
+this distinction.
+
+\subsection{Evidence hierarchy}\label{evidence-hierarchy}
+
+Use independent evidence labels rather than a single \texttt{verified}
+flag:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{source\_observed}: syntax, arguments, source span;
+\item
+  \texttt{lean\_transition\_observed}: before/after state observed
+  during an executed transition;
+\item
+  \texttt{assignment\_observed}: a particular assignment or expression
+  reference was inspected;
+\item
+  \texttt{derived\_annotation}: an extractor rule inferred a relation;
+\item
+  \texttt{kernel\_replay\_passed}: a complete reconstructed declaration
+  passed checking under a recorded trust policy;
+\item
+  \texttt{proposed}: no execution evidence.
+\end{itemize}
+
+An accepted tactic does not prove that a source-mentioned lemma was
+used. \texttt{constructor} does not certify sibling independence. A root
+proof with unresolved holes is not a complete theorem. Proof-term
+enrichment reveals actual references but does not automatically
+establish minimal dependencies or tactic commutation. {[}R14, R15{]}
+
+\subsection{The hashing limitation: an elementary but decisive
+result}\label{the-hashing-limitation-an-elementary-but-decisive-result}
+
+\textbf{Proposition 1 (refinement cannot enlarge duplicate classes).}
+Let \(N\) be any state key and \(H\) any graph key. Define
+\(K(x)=(N(x),H(x))\). Then
+
+\[K(x)=K(y)\Longrightarrow N(x)=N(y).\]
+
+Therefore each \(K\)-equivalence class is a subset of an
+\(N\)-equivalence class.
+
+\textbf{Proof.} Equality of ordered pairs entails equality of their
+first coordinates. \(\square\)
+
+\textbf{Consequence.} A state-plus-graph exact key cannot, by itself,
+merge more states than that same state key. It can retain \emph{more}
+distinctions. Any advantage must come from a different decision:
+scheduling, learned ranking, cross-context fragment reuse, or cheaper
+comparison. Appending graph history to the duplicate key can even undo
+useful transposition sharing.
+
+This does not make graphs useless. It identifies which mechanism must be
+measured. A faithful state may contain all logical information while a
+graph remains a helpful computational representation. No
+information-theoretic superiority is claimed.
+
+\subsection{Conditional local independence, not tactic-name
+independence}\label{conditional-local-independence-not-tactic-name-independence}
+
+For an explicitly restricted tactic semantics, let \(R(t,S)\) and
+\(W(t,S)\) denote the mutable cells read and written by a transition. If
+both transitions are applicable, allocation can be renamed, they perform
+no relevant external effects, and
+
+\[W(t,S)\cap(R(u,S)\cup W(u,S))=\varnothing,\]
+\[W(u,S)\cap(R(t,S)\cup W(t,S))=\varnothing,\]
+
+with these footprints stable over the two executions, the usual
+disjoint-update argument yields commuting results up to fresh-identifier
+renaming.
+
+This is a conditional frame argument, not a theorem about arbitrary Lean
+tactics. A graph of visible goal references is an approximation to these
+footprints. A shared witness can make a focused \texttt{exact} change
+another goal. Arbitrary metaprograms may inspect additional state.
+Consequently the production rule is: preserve observed identities,
+record every observed effect, and refuse uncertified factorization when
+coverage is insufficient. {[}R3, R5, R6, R14{]}
+
+For \texttt{first}, \texttt{try}, and \texttt{repeat}, preserve nested
+transaction ancestry. An InfoTree node in a failed alternative must not
+be treated as a committed proof step solely because it is present in the
+tree. The current repository's handoff explicitly leaves these
+constructs as audit targets. {[}R4{]}
+
+\subsection{The recommended new algorithm: closed-fragment
+transport}\label{the-recommended-new-algorithm-closed-fragment-transport}
+
+Begin with a completed local proof, not an arbitrary open graph. Write
+
+\[E;\Gamma\vdash p:T,\]
+
+where \(p\) contains no unresolved expression or universe metavariables.
+Compute the dependency-closed local telescope \(\Gamma_p\): free locals
+in \(p\) and \(T\), plus all locals required by their types and retained
+local-definition values. Preserve order and instance/binder information.
+Abstract to a portable term over \(\Gamma_p\); do not simply erase
+unused-looking hypotheses from a printed state.
+
+A candidate reuse at target \(E';\Gamma'\vdash T'\) supplies a typed
+context substitution \(\theta\) and compatible environment. The proposed
+application is \(\theta(p)\). The match is useful only if Lean accepts
+it at \(T'\) under the current declaration prefix and trust policy.
+
+\textbf{Proposition 2 (typed substitution, restricted setting).} In a
+dependent type theory with the standard substitution rule, if
+\(E;\Gamma\vdash p:T\) and \(\theta:\Gamma\to\Gamma'\) is a well-typed
+context substitution, then
+
+\[E;\Gamma'\vdash\theta(p):\theta(T).\]
+
+\textbf{Proof sketch.} Induct through the typing derivation; the
+variable case uses the substitution's typing assumptions, and binder
+cases extend the substitution with a fresh bound variable. Local
+definitions require compatibility with their values. If \(\theta(T)\) is
+definitionally equal to \(T'\), the conversion rule gives the desired
+judgment. \(\square\)
+
+This is standard metatheory, not an original theorem claimed by the
+project. It motivates a concrete checker: build the candidate in Lean
+rather than trusting Python's matcher. Different environments require
+checking the used declarations, universe parameters, and permitted
+axioms; equal spelling of a constant is not sufficient.
+
+\subsubsection{Online procedure}\label{online-procedure}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{For each actually solved local obligation:}
+\NormalTok{  inspect the resulting term in its saved Lean context;}
+\NormalTok{  reject unresolved holes, unexported locals, or unsupported obligations;}
+\NormalTok{  build its dependency{-}closed telescope and portable abstraction;}
+\NormalTok{  store term reference, interface, provenance, and replay evidence.}
+
+\NormalTok{Before requesting another costly tactic batch:}
+\NormalTok{  query the ordinary typed cache and/or the boundary{-}graph index;}
+\NormalTok{  propose context substitutions using only the available prefix;}
+\NormalTok{  instantiate a candidate in a cloned current Lean state;}
+\NormalTok{  accept a reuse only if Lean accepts the application;}
+\NormalTok{  commit exactly the accepted branch and record all state effects;}
+\NormalTok{  otherwise restore state and continue the unchanged baseline search.}
+\end{Highlighting}
+\end{Shaded}
+
+The index may be approximate. False matches are performance failures,
+not licenses to assert a proof. Keep final full-declaration replay.
+Typechecking the reused term protects theorem correctness; maintaining
+baseline fallbacks protects coverage but does not by itself guarantee
+equal success under a finite budget.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.68\textwidth,height=\textheight]{../figures/reuse_stages.pdf}
+\caption{Stages of a proposed checked reuse. Retrieval and context
+matching remain proposals until Lean accepts the application.}
+\end{figure}
+
+\subsection{Three instructive
+examples}\label{three-instructive-examples}
+
+\subsubsection{A. Existing sibling transport is a regression, not a new
+speed
+result}\label{a.-existing-sibling-transport-is-a-regression-not-a-new-speed-result}
+
+From \(h:p\land q\), use \texttt{constructor}, \texttt{exact\ h.right},
+\texttt{exact\ h.left} to prove \(q\land p\). The second tactic must
+preserve the identity of the remaining \(p\) goal. Both the user
+artifact and the current research line already target this case. It
+tests extraction, not an incremental graph-search advantage.
+
+\subsubsection{B. Context-sensitive reuse: the actual new
+hypothesis}\label{b.-context-sensitive-reuse-the-actual-new-hypothesis}
+
+Suppose a completed local term proves \(f\ a=g\ a\) from \(h:f=g\). In
+another branch, the context includes extra unrelated assumptions and
+differently named \(f,g,a,h\). The whole context key can differ even
+though the fragment
+\texttt{congrArg\ (fun\ k\ =\textgreater{}\ k\ a)\ h} transports. A
+dependency-indexed cache can propose the fragment using only its
+required telescope; Lean checks the application.
+
+Graph stages are: an open equality port; a retrieved fragment with
+unbound interface parameters; a proposed typed substitution; a
+successful local application; and the unchanged external frontier. This
+could avoid re-searching the local argument. However an ordinary
+proof-term cache could do exactly the same, so it is a mandatory
+baseline. This is a design example, not a measured result.
+
+\subsubsection{C. Coupled witnesses: why local successes cannot be
+combined
+freely}\label{c.-coupled-witnesses-why-local-successes-cannot-be-combined-freely}
+
+For an open construction of \(\exists n:\mathbb N,\ n=0\land n=1\), a
+shared witness cell \(w\) links the residual goals \(w=0\) and \(w=1\).
+One isolated branch can succeed by setting \(w:=0\), another by setting
+\(w:=1\). Their union is inconsistent. A reuse packet for an open
+fragment must include assignment constraints and jointly check
+composition; a cache that stores only ``this goal succeeded'' is
+insufficient. This is why closed-fragment reuse precedes open-fragment
+reuse.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.85\textwidth,height=\textheight]{../figures/shared_witness.pdf}
+\caption{Why a shared witness must remain in the interface of an open
+fragment. This is a logical counterexample to naive composition, not an
+executed Lean trace.}
+\end{figure}
+
+\subsection{Interface and integration}\label{interface-and-integration}
+
+Keep the frozen v0.2 graph dataset unchanged. Add
+\texttt{joint-sidecar/0.1.0} records keyed by source commit, declaration
+locator, extraction session, InfoTree/event path, and content hash. The
+existing exporter does not provide rich boundary state, so its imported
+sidecars truthfully contain \texttt{state\_before:\ null},
+\texttt{state\_after:\ null}, and
+\texttt{boundary\_coverage:\ not\_exported}. {[}R7, R8, R17{]}
+
+Use a tagged JSON expression codec rather than renaming over serialized
+strings. Preserve literals and alias structure; handle missing
+declarations as unknown. Use full digests for indexing and retain
+canonical bytes for collision resolution. Neither a digest nor a
+transport map is a proof of Lean-state equivalence.
+
+The reference code in this package demonstrates those representation
+properties in a finite model. It deliberately rejects incomplete fixture
+coverage. It does not supply a Lean exporter, a complete operational
+boundary, a proof-term matcher, or kernel replay.
+
+\subsection{Scope of novelty}\label{scope-of-novelty}
+
+Existing work supplies the MLL theory, hypergraph search, Lean
+interfaces, factorized state reuse, and expression graphs. {[}R1,
+R10--R16{]} This proposal adapts those ideas into an auditable
+composition of state snapshots, event effects, portable proof fragments,
+and checked reuse. The original deliverable here is the integration
+design and its adversarial regression model, not a claim to have
+invented substitution, proof graphs, metavariable coupling, or
+memoization.
+
+Tactician's Web already connects Coq definitions, proof terms, tactics,
+and states in a semantic graph with an interactive interface; Graph2Tac
+and Tactician's online learning show that reuse of nearby formal
+knowledge is also an established research theme. {[}R18, R19{]} These
+precedents further rule out claiming generic semantic proof graphs or
+online reuse as new. The proposed contribution must be its precise
+Lean-side contract, independent evidence, and measured incremental
+behavior.
+
+Only experiments can establish whether the joint representation adds
+useful value. If a plain typed cache matches graph-indexed reuse, keep
+the cache and report that the graph-specific hypothesis failed.
+
+\section{Experiment and implementation
+plan}\label{experiment-and-implementation-plan}
+
+\textbf{Registration status: DRAFT.} This document is not a
+preregistration. Freeze code, corpus, hypotheses, exclusions, costs, and
+analysis in a new commit before collecting new outcome data. Do not edit
+existing registered experiments or reinterpret their decisions. {[}R3,
+R4{]}
+
+\subsection{Work package 1: reproduce and audit the actual
+baseline}\label{work-package-1-reproduce-and-audit-the-actual-baseline}
+
+Work in a local branch of \texttt{proof-graphs}, pinned initially at
+\texttt{8010d137af5af5040fcbcd9e98f910b01162263e}. Keep its actual
+dependency lock; do not substitute the newer \texttt{proofnet-ir} main
+for a pinned dependency. Compare that pin with the separately inspected
+ProofNet-IR head and document the distinction.
+
+Run the documented build and committed-artifact checks. Distinguish
+recomputing summaries from running new inference. Check a small set of
+fresh Lean fixtures before a broad export. Select fixtures for nested
+\texttt{have}, \texttt{calc}, \texttt{simpa\ ...\ using},
+\texttt{first}, \texttt{try}, \texttt{repeat}, shared witnesses,
+metavariable-dependent local types, and universe sharing. A human should
+independently reconstruct at least the failure-combinator cases before
+viewing extractor output. {[}R4{]}
+
+Acceptance: recorded commands and logs; untouched frozen outputs; a
+reproducible failing test for each confirmed defect, or an explicit
+refutation of the suspected defect. No mass source transformation or
+model training is required.
+
+\subsection{Work package 2: a fail-closed typed boundary
+sidecar}\label{work-package-2-a-fail-closed-typed-boundary-sidecar}
+
+Extend the existing Lean exporter and REPL rather than introducing
+another session driver. Required information is the active goal list,
+persistent raw IDs, versioned capsules, tagged expressions and levels,
+local telescope, reachable metavariable declarations/assignments,
+environment/prefix fingerprint, branch identity, and dependency-coverage
+flags.
+
+When complete coverage is unavailable, keep the entire affected
+state/group and avoid hard equality merges based on lossy printed
+fallback. Lack of factoring is an acceptable conservative result.
+Querying the same snapshot twice must not change observable proof
+behavior.
+
+Acceptance: all adversarial fixtures pass; no literal modification or
+placeholder identity merges; same raw goal may change its capsule
+version; failures do not mutate the committed graph. Every exported row
+validates against one current schema. Recorded gold evidence is attached
+only to actual full replay, not to a tactic name.
+
+\subsection{Work package 3: closed-fragment cache with a graph
+ablation}\label{work-package-3-closed-fragment-cache-with-a-graph-ablation}
+
+Use only completed, hole-free local terms. Start with same-environment
+reuse under typed renaming and weakening. Do not start with arbitrary
+open-subproof unification or a learned GNN.
+
+\textbf{Arms:}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Arm
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Purpose
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+A0: faithful whole-state search & Existing baseline, same correctness
+repairs as other arms \\
+A1: faithful coupled-group search & Existing graph baseline \\
+A2: A0 plus ordinary typed closed-term cache & Does reuse help without
+graph-specific indexing? \\
+A3: A0 plus boundary/graph-indexed cache & Does your representation
+improve retrieval or net cost? \\
+\end{longtable}
+
+A2 and A3 receive the same proof-fragment inventory, trust policy,
+verification budget, and candidate proposer. A3 cannot quietly receive
+more theorems, future dependencies, or a stronger model. Repair keying
+in all arms; do not credit fixing an old baseline bug as a
+graph-specific learning benefit.
+
+Primary mechanism metrics: eligible repeated fragments, retrieval
+attempts, successful Lean-checked reuse, rejected transports, avoided
+model requests, avoided tactic executions, export/match/recheck costs.
+Primary task metric: theorem success under an explicitly fixed resource
+budget. Report all denominators and setup failures.
+
+A graph feature could improve retrieval order without supporting any
+extra exact merges. Make that the experimental distinction rather than
+comparing a weak string cache to a rich graph cache.
+
+\subsection{Work package 4: held-out mathematical
+pilot}\label{work-package-4-held-out-mathematical-pilot}
+
+First use 20--50 small and medium proof fragments with genuine repeated
+subarguments and adversarial negatives; choose the final count before
+the run. After extraction and transport are stable, select a separate
+held-out module set in analysis, algebra, or category theory. Curate by
+syntactic constructs and available build resources, not by whether the
+new algorithm wins.
+
+For condensed mathematics, use an actually buildable, pinned Lean
+project and identify its Lean generation. The historical Liquid Tensor
+corpus and a modern Lean 4 Mathlib development are not interchangeable.
+No theorem from that area was extracted in this review. The milestone is
+one correct traced module fragment, not a diagram labelled
+frontier-scale.
+
+\subsection{Controls that matter}\label{controls-that-matter}
+
+\textbf{Leakage.} Split by module/theorem family and dependency
+availability. Exclude the target declaration itself and later
+declarations from the proving environment. Store full proofs for audit
+separately from policy inputs. Do not compute input graph features from
+future proof steps.
+
+\textbf{Common draws.} For controlled search comparison, prerecord or
+deterministically index candidate draws by exact request content, seed,
+and occurrence. Report marginal candidate costs rather than which arm
+happened to populate the shared cache. A policy conditioned on a
+different graph prompt cannot be called the same draw experiment without
+describing the changed request.
+
+\textbf{Runtime.} Run isolated fresh-process cold-cache trials,
+randomized by arm order, under an explicit warmup policy. Include
+extraction, serialization, canonicalization, matching, replay, and model
+time. The corrected search-v0.8 cost discussion makes this a required
+control. {[}R3{]}
+
+\textbf{Statistics.} A theorem repeated under seeds is a clustered
+observation. Use paired per-task comparisons and module-aware
+uncertainty estimates. Predefine multiple-comparison handling.
+Nonsignificance is not equivalence; a claim of non-inferiority needs a
+chosen margin and an appropriate design.
+
+\subsection{Go / no-go gates}\label{go-no-go-gates}
+
+Proceed to a trained graph model only after there is evidence of a
+useful signal beyond a plain cache. If eligible reuse is rare, change
+corpus or conclude limited applicability before optimizing graph
+encoders. If replay overhead exceeds avoided work, report the cost
+failure. If A2 and A3 perform alike, remove graph-specific claims and
+retain the useful semantic tooling.
+
+The immediate decision need not depend on a positive ML result: a
+carefully audited extractor and falsifiable account of where abstraction
+fails are legitimate outputs, though their publication fit depends on
+the resulting evidence and venue.
+
+\section{Contribution and collaboration
+proposal}\label{contribution-and-collaboration-proposal}
+
+\subsection{Your part, stated without inflating
+it}\label{your-part-stated-without-inflating-it}
+
+Your last available implementation is smaller and less mature than your
+friend's current repositories. Its strengths are the original problem
+framing, the focus on partial boundaries rather than finished proofs
+alone, and the insistence on extracting faithful intermediate objects.
+Those strengths become a distinct contribution only when they are turned
+into new checks, semantics, or demonstrated reuse---not when renamed as
+another graph abstraction. {[}R1--R8, U1{]}
+
+This assessment compares artifacts. It cannot reconstruct the history of
+your joint conversations, the origin of shared ideas, or individual
+authorship. Agree on contribution credit directly and keep a written
+record of work performed.
+
+\subsection{Proposed ownership, subject to your
+agreement}\label{proposed-ownership-subject-to-your-agreement}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Workstream
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Suggested lead
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Concrete output
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Restricted MLL theory and certified IR & Friend / existing maintainer &
+Stable theorem interface; no unsupported transfer to Lean graphs \\
+Existing extraction, search, and frozen results & Friend / existing
+maintainer & Baseline behavior, reproducibility support, review of
+changes \\
+Independent semantic audit & You & Hand reconstructions, adversarial
+Lean fixtures, reproducible bug reports \\
+Typed boundary / event interface & You, jointly reviewed & Versioned
+schema, exporter sidecar, provenance, transaction checks \\
+Checked fragment transport & You, jointly reviewed & Closed-fragment
+cache, context mapping, replay evidence \\
+Experimental design and interpretation & Both & Frozen protocol, strong
+baselines, negative results retained \\
+Paper and release & Both & Separate formal claims, engineering
+guarantees, empirical conclusions \\
+\end{longtable}
+
+Do not divide the project as ``he does code; I do ideas.'' Own a module
+with measurable acceptance criteria. Conversely, a correctness audit is
+not inferior to new features: it determines whether the features support
+the intended scientific claims.
+
+\subsection{Proposed sequence of pull
+requests}\label{proposed-sequence-of-pull-requests}
+
+\textbf{PR 1: audit only.} New adversarial fixtures and source-pinned
+review. No baseline behavior change. Establish which suspicious cases
+are real defects.
+
+\textbf{PR 2: typed boundary sidecar.} Additive schema and serializer,
+identity-version separation, conservative unknown handling. Keep old
+datasets and frozen experiments intact.
+
+\textbf{PR 3: checked closed-fragment cache.} Baseline cache and
+graph-index variant using the same inventory. No learned model yet.
+
+\textbf{PR 4: registered experiment and report.} Collected only after
+the protocol commit. Explain null or negative results as clearly as
+positive ones.
+
+No automatic push to main. Work on a local feature branch, request
+review, and resolve concurrent-edit ownership. The final ZIP is a
+planning/reference package, not a modification of either repository.
+
+\subsection{Suggested message to your
+friend}\label{suggested-message-to-your-friend}
+
+``I read the newer results and think I should stop duplicating the
+extractor and goal-grouping work you already have. I'd like to own the
+semantic audit and typed boundary/transport layer, then test whether
+checked reuse of local proof fragments adds anything beyond your
+structural-state and group baselines. I will start with the
+failure-combinator and identity tests, keep your frozen experiments
+intact, and include a plain proof-term cache so we can isolate whether
+the graph really helps. Let's agree on that scope and review the
+interfaces together before implementation.''
+
+\section{What was and was not
+executed}\label{what-was-and-was-not-executed}
+
+\subsection{Actually executed here}\label{actually-executed-here}
+
+The supplied user v0.7.1 archive was read programmatically and checked
+against its shipped JSON Schema.
+\texttt{evidence/USER\_V071\_AUDIT.json} records the counts and mismatch
+examples. This is a fresh artifact audit, not a fresh Lean run.
+
+The package's Python reference tests were run with
+\texttt{python\ -m\ unittest\ discover\ -s\ tests\ -v}. They cover typed
+renaming, literal preservation, metavariable aliasing, shared local
+identity across capsules, transitive and universe dependencies in a
+finite model, frontier persistence, and schema guards.
+\texttt{evidence/REFERENCE\_TEST\_LOG.txt} is the actual output.
+
+The literal regression reproduces the specific regex-renumbering
+mechanism observed in the pinned \texttt{scripts/goal\_identity.py}
+{[}R5{]}. It does not import and execute the entire remote repository,
+and its synthetic inputs are not evidence of an actual erroneous Mathlib
+proof.
+
+\subsection{Not executed here}\label{not-executed-here}
+
+No local \texttt{lake\ build}, Lean proof elaboration, friend-repository
+end-to-end reproduction, full 7,285-row dataset conversion, new model
+call, or frontier theorem trace was performed. Lean/Lake was
+unavailable; container GitHub cloning failed at DNS resolution, while
+selected files were successfully read through the connected GitHub tool.
+No repository was modified remotely.
+
+\texttt{examples/BoundaryRegression.lean} is uncompiled fixture source.
+The JSON examples are explicitly synthetic design fixtures. Their IDs
+name fixtures, not invented Lean metavariables. The offline adapter was
+tested on a synthetic row matching the inspected format, not the full
+downloaded dataset.
+
+\subsection{Interpretation limits}\label{interpretation-limits}
+
+The Python representation is not a Lean typechecker and does not decide
+operational state equivalence. It deliberately rejects missing declared
+dependencies, but its finite-model closure does not establish complete
+coverage of Lean's postponed constraints, plugins, transparency
+behavior, elaborator state, or external effects. A matching fingerprint
+licenses no hard pruning. The sidecar schema enforces that limitation.
+
+A passed JSON schema checks structure, not provenance truth. A claimed
+log reference still requires checking its contents. A passed local term
+application is not a full-declaration replay. A full checked theorem
+does not prove that every extractor annotation is correct or that a
+pruning rule preserves search completeness.
+
+\section{Source register}\label{source-register}
+
+Reviewed 30 September 2026. GitHub links are pinned to the exact
+inspected commit. The Lean reference is a moving documentation URL;
+actual integration must inspect the pinned Lean source. R-numbers below
+are used throughout the reports. U1 is a local artifact, not a public
+publication.
+
+\textbf{{[}R1{]} ProofNet-IR: current status and restricted MLL
+guarantees.}
+\url{https://github.com/fushanbobfan/proofnet-ir/blob/261f2db26aac842534f4306da0f45d8c5e9b1c05/docs/current-status.md}
+
+\textbf{{[}R2{]} proof-graphs: current scope and dataset.}
+\url{https://github.com/fushanbobfan/proof-graphs/blob/8010d137af5af5040fcbcd9e98f910b01162263e/README.md}
+
+\textbf{{[}R3{]} proof-graphs: states, goals, and coupled groups,
+search-v0.8.}
+\url{https://github.com/fushanbobfan/proof-graphs/blob/8010d137af5af5040fcbcd9e98f910b01162263e/experiments/search-v0.8/README.md}
+
+\textbf{{[}R4{]} proof-graphs: handoff, verification boundaries, and
+audit priorities.}
+\url{https://github.com/fushanbobfan/proof-graphs/blob/8010d137af5af5040fcbcd9e98f910b01162263e/HANDOFF.md}
+
+\textbf{{[}R5{]} proof-graphs: structural goal identity implementation.}
+\url{https://github.com/fushanbobfan/proof-graphs/blob/8010d137af5af5040fcbcd9e98f910b01162263e/scripts/goal_identity.py}
+
+\textbf{{[}R6{]} proof-graphs: structural-key whole-state, goal, and
+group searches.}
+\url{https://github.com/fushanbobfan/proof-graphs/blob/8010d137af5af5040fcbcd9e98f910b01162263e/scripts/search_faithful.py}
+
+\textbf{{[}R7{]} proof-graphs: Lean InfoTree extractor.}
+\url{https://github.com/fushanbobfan/proof-graphs/blob/8010d137af5af5040fcbcd9e98f910b01162263e/ProofGraphs/Extract.lean}
+
+\textbf{{[}R8{]} proof-graphs: corrected graph derivation and dataset
+generation.}
+\url{https://github.com/fushanbobfan/proof-graphs/blob/8010d137af5af5040fcbcd9e98f910b01162263e/scripts/run_recount.py}
+
+\textbf{{[}R9{]} ProofNet-IR: representation study with and without
+thinking, v0.3.}
+\url{https://github.com/fushanbobfan/proofnet-ir/blob/261f2db26aac842534f4306da0f45d8c5e9b1c05/experiments/representation-v0.3/README.md}
+
+\textbf{{[}R10{]} Kripner, Sustr, and Straka (2025), LeanTree:
+Accelerating White-Box Proof Search with Factorized States in Lean 4.}
+\url{https://arxiv.org/abs/2507.14722v1}
+
+\textbf{{[}R11{]} Lample et al.~(2022), HyperTree Proof Search for
+Neural Theorem Proving.} \url{https://arxiv.org/abs/2205.11491v1}
+
+\textbf{{[}R12{]} Aniva, Sun, Miranda, Barrett, and Koyejo (2025
+revision), Pantograph.} \url{https://arxiv.org/abs/2410.16429v2}
+
+\textbf{{[}R13{]} Aniva, Oikawa, Dill, and Barrett (2026), Nazrin: An
+Atomic Neural Proof Automation Tactic in Lean 4.}
+\url{https://arxiv.org/abs/2602.18767v3}
+
+\textbf{{[}R14{]} Lean language reference: reading proof states.}
+\url{https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Reading-Proof-States/}
+
+\textbf{{[}R15{]} Lean language reference: tactic proofs.}
+\url{https://lean-lang.org/doc/reference/latest/Tactic-Proofs/}
+
+\textbf{{[}R16{]} Yang et al.~(2023), LeanDojo: Theorem Proving with
+Retrieval-Augmented Language Models.}
+\url{https://arxiv.org/abs/2306.15626}
+
+\textbf{{[}R17{]} proof-graphs: original dataset row format; use R8 for
+corrected v0.2 generation.}
+\url{https://github.com/fushanbobfan/proof-graphs/blob/8010d137af5af5040fcbcd9e98f910b01162263e/scripts/export_graphs.py}
+
+\textbf{{[}U1{]} User-supplied Boundary-Lens v0.7.1 archive; fresh
+Python audit in this package.} ../evidence/USER\_V071\_AUDIT.json
+
+The repository reports are first-party evidence, not independently
+replicated results in this review. Selected code paths were inspected
+through the connected GitHub reader. Container cloning was blocked by
+DNS and Lean/Lake was unavailable. The review therefore does not certify
+either full repository build or all experimental conclusions.
+
+\textbf{{[}R18{]} Blaauwbroek et al.~(2024), Graph2Tac: Online
+Representation Learning of Formal Math Concepts, ICML / PMLR 235.}
+\url{https://proceedings.mlr.press/v235/blaauwbroek24a.html}
+
+\textbf{{[}R19{]} Blaauwbroek (2024), The Tactician's Web of Large-Scale
+Formal Knowledge.} \url{https://arxiv.org/abs/2401.02950v2}
+
+\end{document}

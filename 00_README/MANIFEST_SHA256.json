@@ -1,0 +1,132 @@
+[
+  {
+    "path": "00_README/README_FIRST.md",
+    "bytes": 3174,
+    "sha256": "1c8b9c09394e651efd19f53165677f89b54b5005ada1376d987253c88e3dbe34"
+  },
+  {
+    "path": "01_CURRENT_DATASET/proofnet_v071_boundary_lens_complete_20260704.zip",
+    "bytes": 31077177,
+    "sha256": "d01d806f87ca6b0855b543c3a707e2424a84821ed9ea98c8fffd31a6ae064fb1"
+  },
+  {
+    "path": "02_JOINT_RESEARCH/ProofNet_Joint_Integration_Review_20260930.zip",
+    "bytes": 704224,
+    "sha256": "4c8e65f09ec4bf2b4d42d13de40e219a601940ae1da142901cb6a349aed431b5"
+  },
+  {
+    "path": "02_JOINT_RESEARCH/proofnet_joint_integration_20260930/paper/Executive_Brief.pdf",
+    "bytes": 165107,
+    "sha256": "a45d6275f66c67e2d01c63adf1b5e9ec4d3eedde14fe9778389f0e8ef81e2359"
+  },
+  {
+    "path": "02_JOINT_RESEARCH/proofnet_joint_integration_20260930/paper/Joint_Research_Plan.pdf",
+    "bytes": 403663,
+    "sha256": "b6a13d5fb295ab5c9f19a671639c435d5177c5afb30ccfedbb10b5f79dfbbcf0"
+  },
+  {
+    "path": "02_JOINT_RESEARCH/proofnet_joint_integration_20260930/paper/Joint_Research_Plan.tex",
+    "bytes": 55428,
+    "sha256": "d66562464e4f0c6cc30291575e90e6a2d4452959299a211ae701136148b8f46d"
+  },
+  {
+    "path": "02_JOINT_RESEARCH/proofnet_joint_integration_20260930/prompts/CODEX_CLOSED_FRAGMENT_REUSE_PROMPT.md",
+    "bytes": 4329,
+    "sha256": "6ac9140dfffc8f134617a7569e90d4e75b9b5eadfe83a12f60c395f2a0e9e600"
+  },
+  {
+    "path": "02_JOINT_RESEARCH/proofnet_joint_integration_20260930/prompts/CODEX_JOINT_INTEGRATION_PROMPT.md",
+    "bytes": 13203,
+    "sha256": "080b44c51da87542071ec2807c2cf715316b7db00b05dfea2bd0e5f7036f2125"
+  },
+  {
+    "path": "02_JOINT_RESEARCH/proofnet_joint_integration_20260930/reports/REPOSITORY_COMPARISON.md",
+    "bytes": 10930,
+    "sha256": "8b8a4388ef413c2654bfbb66a14fda6ff44aaec31045e46dbc4d22b2a70af745"
+  },
+  {
+    "path": "03_CURRENT_AUDIT_AND_METHOD_UPDATE/proofnet_v071_audit_update/prompts/CODEX_V072_BOUNDARY_LENS_IMPROVEMENT_PROMPT.md",
+    "bytes": 17326,
+    "sha256": "ae258508cb73f9bffda497f23a6ff6d81613118657621702a9db849306ae99db"
+  },
+  {
+    "path": "03_CURRENT_AUDIT_AND_METHOD_UPDATE/proofnet_v071_audit_update/reports/PROOFNET_V071_AUDIT_AND_METHOD_UPDATE.md",
+    "bytes": 16362,
+    "sha256": "e14aec4b750df34e742b81188833a8001ee6f183e5bf9b773fae17e623d0ae41"
+  },
+  {
+    "path": "03_CURRENT_AUDIT_AND_METHOD_UPDATE/proofnet_v071_audit_update/schemas/proofnet_boundary_graph_schema_v0_7_2.json",
+    "bytes": 1712,
+    "sha256": "d76230cb51bf2fcf8357cf28175332b8a0b31c346406b7e1f59d05a05cdf8634"
+  },
+  {
+    "path": "03_CURRENT_AUDIT_AND_METHOD_UPDATE/proofnet_v071_audit_update/schemas/proofnet_lens_trace_step_schema_v0_7_2.json",
+    "bytes": 8713,
+    "sha256": "0e703a2b5c436eb25d319914ebd3e9237287d66c879e106a96fb11bbf3803745"
+  },
+  {
+    "path": "03_CURRENT_AUDIT_AND_METHOD_UPDATE/proofnet_v071_audit_update/scripts/check_v071_current_schema_mismatch.py",
+    "bytes": 1935,
+    "sha256": "8d1fa22c8b65ba9ce749fa456293502deb28e87bba164e5b253f68542c4fca53"
+  },
+  {
+    "path": "03_CURRENT_AUDIT_AND_METHOD_UPDATE/proofnet_v071_audit_update_deliverables.zip",
+    "bytes": 18823,
+    "sha256": "591bd4ca24ba870f78eec6e5a62dee9aa5f8ebe5e03ee707a344a003385fbf4b"
+  },
+  {
+    "path": "04_CODEX_PROMPTS/CODEX_ACTUAL_LEAN_SESSION_BOUNDARY_LENS_PROMPT.md",
+    "bytes": 16669,
+    "sha256": "8988b6e91233addc04d1b16eb45cce32719ceb2c56ed6a17a08308c8183987bf"
+  },
+  {
+    "path": "04_CODEX_PROMPTS/CODEX_CLOSED_FRAGMENT_REUSE_PROMPT.md",
+    "bytes": 4329,
+    "sha256": "6ac9140dfffc8f134617a7569e90d4e75b9b5eadfe83a12f60c395f2a0e9e600"
+  },
+  {
+    "path": "04_CODEX_PROMPTS/CODEX_JOINT_INTEGRATION_PROMPT.md",
+    "bytes": 13203,
+    "sha256": "080b44c51da87542071ec2807c2cf715316b7db00b05dfea2bd0e5f7036f2125"
+  },
+  {
+    "path": "04_CODEX_PROMPTS/CODEX_V07_BOUNDARY_LENS_EXTRACTOR_PROMPT.md",
+    "bytes": 26404,
+    "sha256": "7d4e13f63003e7641b41b48ac984417f38dacf8ac62efb2a1fe1d6197f2efd32"
+  },
+  {
+    "path": "05_PRIOR_METHOD_PACKAGES/proofnet_boundary_lens_v12_deliverables.zip",
+    "bytes": 1040914,
+    "sha256": "db3526ba96394eab2a4f03ae8c76119eba0bda1ceed29191b2b8b6eb07413ba2"
+  },
+  {
+    "path": "05_PRIOR_METHOD_PACKAGES/proofnet_frontier_v04_audit_deliverables.zip",
+    "bytes": 80027,
+    "sha256": "50f83c2374af1e75d59d559d2c78b9ae35b1abbcd0ffbee3ff55885c758f4087"
+  },
+  {
+    "path": "05_PRIOR_METHOD_PACKAGES/proofnet_methodology_v10_deliverables.zip",
+    "bytes": 218936,
+    "sha256": "9a13a7dacd512ada49b32c8bdb04dc7a2955b90f4b58fae4d804333e0a805afb"
+  },
+  {
+    "path": "05_PRIOR_METHOD_PACKAGES/proofnet_methodology_v11_deliverables.zip",
+    "bytes": 156037,
+    "sha256": "5d7a7afc47ec21abd6ae27b3f7c6e5c49dda4d550d99df646cf929a8cbf6302e"
+  },
+  {
+    "path": "05_PRIOR_METHOD_PACKAGES/proofnet_state_extractor_v05.zip",
+    "bytes": 110380,
+    "sha256": "81bc8df2660e06fc399b945211dd47754f59271bbb94175ae42fe859e1121321"
+  },
+  {
+    "path": "05_PRIOR_METHOD_PACKAGES/proofnet_state_extractor_v05_reflection.md",
+    "bytes": 15006,
+    "sha256": "0c725db35ea11b1c86748c83bdf9a12597a92020527db90c85ef1574a33f9a32"
+  },
+  {
+    "path": "05_PRIOR_METHOD_PACKAGES/proofnet_v07_boundary_lens_nextstep_deliverables.zip",
+    "bytes": 913280,
+    "sha256": "0edbb161c4055027b73bfa728496b174f85a56be6557167b191e83005314af68"
+  }
+]

@@ -1,0 +1,216 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://proofnet.local/schemas/proofnet_lens_trace_step_schema_v0_7_2.json",
+  "title": "ProofNet Boundary-Lens trace step v0.7.2",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "record_type",
+    "quality_tier",
+    "theorem_id",
+    "variant_id",
+    "step_index",
+    "formal_statement_header",
+    "model_input",
+    "identity_channel",
+    "feature_channel",
+    "provenance_channel",
+    "state_before",
+    "rho_before",
+    "frontier_before",
+    "graph_delta",
+    "lean_result",
+    "verification_status"
+  ],
+  "properties": {
+    "schema_version": {"const": "0.7.2"},
+    "record_type": {"const": "lens_trace_step"},
+    "quality_tier": {
+      "enum": [
+        "silver_controlled_tactic_state",
+        "silver_mathlib_tactic_state",
+        "silver_frontier_tactic_state",
+        "search_branch_replay_failure",
+        "search_branch_same_session_failure",
+        "bronze_source_plan",
+        "gold_proof_term_enriched"
+      ]
+    },
+    "theorem_id": {"type": "string", "minLength": 1},
+    "variant_id": {"type": "string", "minLength": 1},
+    "step_index": {"type": "integer", "minimum": 0},
+    "formal_statement_header": {"type": "string", "minLength": 1},
+    "model_input": {"type": "object"},
+    "identity_channel": {
+      "type": "object",
+      "description": "Raw Lean and engineering identifiers. Never model input.",
+      "properties": {
+        "rho_before": {"$ref": "#/$defs/rhoMap"},
+        "rho_after": {"anyOf": [{"$ref": "#/$defs/rhoMap"}, {"type": "null"}]},
+        "raw_goal_mvars_before": {"type": "array", "items": {"type": "string"}},
+        "raw_goal_mvars_after": {"anyOf": [{"type": "array", "items": {"type": "string"}}, {"type": "null"}]}
+      },
+      "additionalProperties": true
+    },
+    "feature_channel": {
+      "type": "object",
+      "description": "Canonical model-eligible features. Must not contain raw ids or proof body fields.",
+      "additionalProperties": true
+    },
+    "provenance_channel": {
+      "type": "object",
+      "description": "Source/log/build provenance. Not model input.",
+      "additionalProperties": true
+    },
+    "tactic": {"$ref": "#/$defs/tactic"},
+    "candidate_tactic": {"$ref": "#/$defs/tactic"},
+    "state_before": {"$ref": "#/$defs/state"},
+    "state_after": {"anyOf": [{"$ref": "#/$defs/state"}, {"type": "null"}]},
+    "rho_before": {"$ref": "#/$defs/rhoMap"},
+    "rho_after": {"anyOf": [{"$ref": "#/$defs/rhoMap"}, {"type": "null"}]},
+    "frontier_before": {"type": "array", "items": {"type": "string"}},
+    "frontier_after": {"anyOf": [{"type": "array", "items": {"type": "string"}}, {"type": "null"}]},
+    "boundary_hash_raw_before": {"type": "string", "pattern": "^sha256:"},
+    "boundary_hash_raw_after": {"anyOf": [{"type": "string", "pattern": "^sha256:"}, {"type": "null"}]},
+    "boundary_hash_canonical_before": {"type": "string", "pattern": "^sha256:"},
+    "boundary_hash_canonical_after": {"anyOf": [{"type": "string", "pattern": "^sha256:"}, {"type": "null"}]},
+    "cumulative_graph_hash_before": {"type": "string", "pattern": "^sha256:"},
+    "cumulative_graph_hash_after": {"anyOf": [{"type": "string", "pattern": "^sha256:"}, {"type": "null"}]},
+    "transport_certificate": {"anyOf": [{"$ref": "#/$defs/transportCertificate"}, {"type": "null"}]},
+    "graph_delta": {"$ref": "#/$defs/graphDelta"},
+    "lean_result": {"enum": ["success", "failure"]},
+    "lean_error_excerpt": {"type": ["string", "null"]},
+    "failure_type": {
+      "type": ["string", "null"],
+      "enum": [null, "type_mismatch", "apply_failed", "unsolved_goals", "unknown_identifier", "tactic_failed", "lean_error"]
+    },
+    "reason_to_prune_or_penalize": {"type": ["string", "null"]},
+    "verification_status": {
+      "enum": ["lean_transition_verified", "lean_rejected", "source_observed", "heuristic", "proof_term_verified"]
+    }
+  },
+  "oneOf": [
+    {
+      "properties": {"lean_result": {"const": "success"}},
+      "required": [
+        "tactic",
+        "state_after",
+        "rho_after",
+        "frontier_after",
+        "boundary_hash_raw_after",
+        "boundary_hash_canonical_after",
+        "cumulative_graph_hash_after",
+        "transport_certificate"
+      ]
+    },
+    {
+      "properties": {
+        "lean_result": {"const": "failure"},
+        "state_after": {"type": "null"},
+        "rho_after": {"type": "null"},
+        "frontier_after": {"type": "null"},
+        "boundary_hash_raw_after": {"type": "null"},
+        "boundary_hash_canonical_after": {"type": "null"},
+        "cumulative_graph_hash_after": {"type": "null"},
+        "verification_status": {"const": "lean_rejected"}
+      },
+      "required": ["candidate_tactic", "lean_error_excerpt", "failure_type"]
+    }
+  ],
+  "$defs": {
+    "rhoMap": {
+      "type": "object",
+      "additionalProperties": {"type": "string"}
+    },
+    "tactic": {
+      "type": "object",
+      "required": ["raw", "kind"],
+      "properties": {
+        "raw": {"type": "string"},
+        "kind": {"type": "string"},
+        "arguments": {"type": "array", "items": {"type": "string"}},
+        "source_span": {"type": ["object", "null"]},
+        "nesting_path": {"type": "array", "items": {"type": ["integer", "string"]}}
+      },
+      "additionalProperties": true
+    },
+    "state": {
+      "type": "object",
+      "required": ["goals", "boundary_capsules"],
+      "properties": {
+        "goals": {"type": "array", "items": {"type": "object"}},
+        "boundary_capsules": {"type": "array", "items": {"$ref": "#/$defs/boundaryCapsule"}}
+      },
+      "additionalProperties": true
+    },
+    "boundaryCapsule": {
+      "type": "object",
+      "required": ["graph_node_id", "target_feature", "local_context_feature"],
+      "properties": {
+        "graph_node_id": {"type": "string"},
+        "identity": {"type": "object"},
+        "target_feature": {"type": "object"},
+        "local_context_feature": {"type": "array", "items": {"type": "object"}},
+        "boundary_hash_raw": {"type": "string"},
+        "boundary_hash_canonical": {"type": "string"}
+      },
+      "additionalProperties": true
+    },
+    "transportCertificate": {
+      "type": "object",
+      "required": [
+        "tactic_modality",
+        "focused_before_mvar",
+        "goals_before_mvars",
+        "goals_after_mvars",
+        "preserved_mvars",
+        "consumed_mvars",
+        "created_mvars",
+        "preserved_graph_nodes",
+        "consumed_graph_nodes",
+        "created_graph_nodes",
+        "checked_frontier_invariant"
+      ],
+      "properties": {
+        "tactic_modality": {"enum": ["focused", "all_goals", "branch_generating", "context_only", "unknown"]},
+        "focused_before_mvar": {"type": ["string", "null"]},
+        "goals_before_mvars": {"type": "array", "items": {"type": "string"}},
+        "goals_after_mvars": {"type": "array", "items": {"type": "string"}},
+        "preserved_mvars": {"type": "array", "items": {"type": "string"}},
+        "consumed_mvars": {"type": "array", "items": {"type": "string"}},
+        "created_mvars": {"type": "array", "items": {"type": "string"}},
+        "preserved_graph_nodes": {"type": "array", "items": {"type": "string"}},
+        "consumed_graph_nodes": {"type": "array", "items": {"type": "string"}},
+        "created_graph_nodes": {"type": "array", "items": {"type": "string"}},
+        "checked_frontier_invariant": {"type": "boolean"},
+        "checked_focused_tactic_did_not_consume_siblings": {"type": "boolean"}
+      },
+      "additionalProperties": true
+    },
+    "graphDelta": {
+      "type": "object",
+      "required": ["nodes_added", "edges_added", "nodes_updated", "frontier_updates", "delta_status"],
+      "properties": {
+        "nodes_added": {"type": "array", "items": {"type": "object"}},
+        "edges_added": {"type": "array", "items": {"$ref": "#/$defs/graphEdge"}},
+        "nodes_updated": {"type": "array", "items": {"type": "object"}},
+        "frontier_updates": {"type": "array", "items": {"type": "object"}},
+        "delta_status": {"enum": ["verified", "ghost_rejected", "heuristic", "source_observed"]}
+      },
+      "additionalProperties": true
+    },
+    "graphEdge": {
+      "type": "object",
+      "required": ["source", "target", "type", "verification"],
+      "properties": {
+        "source": {"type": "string"},
+        "target": {"type": "string"},
+        "type": {"type": "string"},
+        "verification": {"enum": ["lean_transition_verified", "source_observed", "heuristic", "proof_term_verified", "ghost_rejected"]},
+        "evidence": {"type": "object"}
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}
